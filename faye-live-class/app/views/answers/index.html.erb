@@ -1,0 +1,20 @@
+<div>
+  <table style="width: 60vw !important; margin-left: 20vw; margin-top: 10vh;">
+    <thead>
+      <tr style="background: #014055;">
+        <th>ID
+        <th>Họ Tên
+        <th>Câu trả lời
+    </thead>
+    <tbody>
+      <% @answers.each do |answer| %>
+        <tr>
+          <td><%= answer.marker_id %></td>
+          <td><%= answer.full_name %></td>
+          <td id=<%= "content_#{answer.marker_id}" %>><%= answer.content.present? ? answer.content : "Chưa có câu trả lời" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= subscribe_to "/answers/new" %>
