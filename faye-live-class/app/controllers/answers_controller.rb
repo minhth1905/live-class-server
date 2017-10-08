@@ -16,6 +16,11 @@ class AnswersController < ApplicationController
     render json: {code: 1}, status: :ok
   end
 
+  def update
+    Answer.update_all(content: nil)
+    redirect_to root_path
+  end
+
   private
   def model_params
     params.permit :content

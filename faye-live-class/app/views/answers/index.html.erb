@@ -1,5 +1,11 @@
 <div>
-  <table style="width: 60vw !important; margin-left: 20vw; margin-top: 10vh;">
+  <%= form_tag('/answers/1', method: :put) do %>
+    <button type="submit">Làm lại</button>
+  <% end %>
+  <div style="text-align: center; margin-top: 10px; color: white;">
+    <h2>Kết quả</h2>
+  </div>
+  <table style="width: 60vw !important; margin-left: 20vw; margin-top: 10px;">
     <thead>
       <tr style="background: #014055;">
         <th>ID
