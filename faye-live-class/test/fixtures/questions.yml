@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_mongo: MyString
+  exam: one
+
+two:
+  id_mongo: MyString
+  exam: two

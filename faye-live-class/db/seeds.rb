@@ -5,8 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Answer.delete_all
-1.upto(20) do |i|
-  full_name = Faker::Name.name
-  Answer.create!(marker_id: i, full_name: full_name)
-end
+# Answer.delete_all
+# 1.upto(20) do |i|
+#   full_name = Faker::Name.name
+#   Answer.create!(marker_id: i, full_name: full_name)
+# end
+
+User.create(email: "admin@gmail.com", password: "12345678", password_confirmation: "12345678")
