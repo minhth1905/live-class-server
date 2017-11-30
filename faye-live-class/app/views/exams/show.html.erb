@@ -1,0 +1,121 @@
+<%= render 'layouts/header' %>
+<div class="row">
+  <div class="col-md-2">
+    <div id="sidebar" class="well sidebar-nav" style="height: 90vh; padding-top: 0; margin-top: -19px;">
+
+      <ul class="nav nav-pills nav-stacked">
+        <li class=<%= @type == 'home' ? 'active' : "" %>>
+          <%= link_to "Mô tả", exam_path(id: params[:id], type: "home") %>
+        </li>
+      </ul>
+      <ul class="nav nav-pills nav-stacked">
+        <% @questions.each_with_index do |question, index| %>
+          <li class=<%= @type.to_i == question.id ? 'active' : "" %>>
+            <%= link_to "Câu hỏi #{index + 1}", exam_path(id: question.exam_id, type: question.id) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-10">
+    <% if @type == "home" %>
+      haha
+    <% else %>
+      <div class="col-md-12">
+        <%= @question %>
+      </div>
+      <div class="col-md-12" style="text-align: center;">
+        <h3>Danh sách kết quả trả lời</h3>
+      </div>
+
+      <div class="col-md-12" style="text-align: center;">
+        <%= link_to "Hiện câu trả lời", exam_path(id: params[:id], type: params[:type], show_answer: 1),
+          class: "btn btn-primary" %>
+      </div>
+
+      <div class="col-md-12" style="padding-top: 10px;">
+        <div class="col-md-4">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Trả lời</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @students.each_with_index do |student, index| %>
+                <% if index < 15 %>
+                  <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= student.name %></td>
+                    <% if @answer_true.blank? %>
+                      <td id=<%= "content_#{student.marker_id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
+                    <% else %>
+                      <td><%= student.content.present? ? student.content : "x"  %></td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-md-4">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Trả lời</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @students.each_with_index do |student, index| %>
+                <% if index < 30 && index >= 15 %>
+                  <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= student.name %></td>
+                    <% if @answer_true.blank? %>
+                      <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
+                    <% else %>
+                      <td><%= student.content.present? ? student.content : "x"  %></td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-md-4">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Trả lời</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @students.each_with_index do |student, index| %>
+                <% if index >= 30 && index < 45 %>
+                  <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= student.name %></td>
+                    <% if @answer_true.blank? %>
+                      <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
+                    <% else %>
+                      <td><%= student.content.present? ? student.content : "x"  %></td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= subscribe_to "/answers/new" %>

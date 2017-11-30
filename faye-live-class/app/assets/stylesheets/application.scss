@@ -13,13 +13,14 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
-body, html {
+/*body, html {
   height: 100%;
   background-repeat: no-repeat;
   background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
-}
+}*/
 
 /*#login_2 {*/
   .card-container.card {

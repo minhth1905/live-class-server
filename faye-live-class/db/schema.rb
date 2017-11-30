@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20171130032105) do
 
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "id_mongo"
+    t.string "answer"
     t.bigint "exam_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20171130032105) do
 
   create_table "students", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
+    t.integer "marker_id"
     t.bigint "grade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,0 +1,2 @@
+module NextPagesHelper
+end

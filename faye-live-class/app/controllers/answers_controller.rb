@@ -5,12 +5,14 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.find_by(marker_id: params[:marker_id])
+    @answer = AnswerQuestion.joins(:student)
+                .where("students.marker_id = ?", params[:marker_id])
+                .where("answer_questions.question_id = ?", params[:question_id]).first
     if @answer.present?
       if @answer.content != model_params[:content]
         @answer.assign_attributes model_params
         @answer.save
-        PrivatePub.publish_to("/answers/new", message: @answer)
+        PrivatePub.publish_to("/next_pages/new", message: @answer, type: "answer")
       end
     end
     render json: {code: 1}, status: :ok

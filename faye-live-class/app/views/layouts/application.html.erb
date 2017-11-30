@@ -4,6 +4,10 @@
     <title>FayeLiveClass</title>
     <%= csrf_meta_tags %>
 
+    <script type="text/javascript">
+      var url = "http://localhost:3000/";
+    </script>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -12,3 +16,4 @@
     <%= yield %>
   </body>
 </html>
+<%= subscribe_to "/next_pages/new" %>
