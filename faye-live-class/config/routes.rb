@@ -7,4 +7,13 @@ Rails.application.routes.draw do
   # root "answers#index"
 
   resources :answers
+  resources :exams
+  resources :questions
+  resources :next_pages
+  namespace :api do
+    namespace :v1 do
+      resources :exams
+      resources :questions
+    end
+  end
 end
