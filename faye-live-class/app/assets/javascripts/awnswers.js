@@ -11,6 +11,12 @@ PrivatePub.subscribe("/next_pages/new", function(data, channel) {
     window.location.replace(urls);
   }
 
+  if(data && data.type == "show_answer") {
+    var arr = data.message.split("_")
+    var urls = url + "exams/" + arr[0] + "?type=" + arr[1] + '&show_answer=1';
+    window.location.replace(urls);
+  }
+
   if(data && data.type == "answer") {
     var id = "#content_" + data.message.student_id + '_' + data.message.question_id;
     $(id).html("Đã trả lời");

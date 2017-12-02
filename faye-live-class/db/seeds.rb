@@ -11,7 +11,7 @@
 #   Answer.create!(marker_id: i, full_name: full_name)
 # end
 
-User.create(email: "admin@gmail.com", password: "12345678", password_confirmation: "12345678")
+User.create(email: "demo@gmail.com", password: "12345678", password_confirmation: "12345678")
 
 #grade
 Grade.create(name: "Kiểm thử và đảm bảo chất lượng phần mềm", node: "node 1")
