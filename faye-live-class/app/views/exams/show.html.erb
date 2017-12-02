@@ -19,7 +19,13 @@
   </div>
   <div class="col-md-10">
     <% if @type == "home" %>
-      haha
+      <div class="card" style="text-align: center;">
+        <img class="card-img-top" src="http://thaydungdayhoa.com/uploads/news/de-thi-thu/lam-bai-thi.jpg" alt="Card image cap">
+        <div class="card-block" style="padding-top: 20px;">
+          <h3 class="card-text">Bài kiểm tra</h3>
+          <h4 class="card-text">Thời gian: ....</h4>
+        </div>
+      </div>
     <% else %>
       <div class="col-md-12">
         <%= @question %>
@@ -29,8 +35,13 @@
       </div>
 
       <div class="col-md-12" style="text-align: center;">
-        <%= link_to "Hiện câu trả lời", exam_path(id: params[:id], type: params[:type], show_answer: 1),
-          class: "btn btn-primary" %>
+        <% if params[:show_answer].present? %>
+          <%= link_to "Ẩn câu trả lời", exam_path(id: params[:id], type: params[:type]),
+            class: "btn btn-primary" %>
+        <% else %>
+          <%= link_to "Hiện câu trả lời", exam_path(id: params[:id], type: params[:type], show_answer: 1),
+            class: "btn btn-primary" %>
+        <% end %>
       </div>
 
       <div class="col-md-12" style="padding-top: 10px;">
