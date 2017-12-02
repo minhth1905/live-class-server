@@ -5,7 +5,6 @@ class NextPagesController < ApplicationController
     exam_id = params[:exam_id]
     question_id = params[:question_id]
     type = params[:show_answer]
-
     if type.present?
       type = "show_answer"
     else
