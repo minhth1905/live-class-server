@@ -33,6 +33,10 @@ class ExamsController < ApplicationController
 
       if params[:show_answer].present?
         @answer_true = check_question.answer
+        @answer_question = check_question.answer
+        @true_answer = AnswerQuestion.where(question_id: @type, content: @answer_question).count
+        @wrong_answer = AnswerQuestion.where(question_id: @type).where("content != ? and content is not null", @answer_question).count
+        @not_answer = AnswerQuestion.where(question_id: @type).where("content is null", @answer_question).count
       else
         @answer_true = nil
       end
