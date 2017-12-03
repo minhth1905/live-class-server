@@ -1,11 +1,19 @@
 <%= render "layouts/header" %>
 <div class="container">
   <div class="row">
+    <%= link_to "Tạo bài kiểm tra mới", exams_path, method: :post,
+                class: "btn btn-primary right-float" %>
+  </div>
+  <div class="row">
     <% @exams.each do |exam| %>
       <div class="col-sm-6">
         <div class="card">
           <div class="card-block">
             <h3 class="card-title"><%= exam.name %></h3>
+            <p class="card-text">Môn: Kiểm thử và đảm bảo chất lượng phần mềm</p>
+            <p class="card-text">Số lượng câu hỏi: 22</p>
+            <p class="card-text">Loại kiểm tra: Trắc nghiệm - Chọn 1 đáp án đúng</p>
+            <p class="card-text">Số sinh viên: 82</p>
             <%= link_to "Thực hiện bài kiểm tra", exam_path(id: exam.id, type: "home"),
               class: "btn btn-primary" %>
           </div>
@@ -14,3 +22,8 @@
     <% end %>
   </div>
 </div>
+<style type="text/css">
+  .right-float {
+    float: right;
+  }
+</style>
