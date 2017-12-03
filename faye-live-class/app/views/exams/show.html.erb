@@ -63,7 +63,7 @@
                     <% if @answer_true.blank? %>
                       <td id=<%= "content_#{student.marker_id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
                     <% else %>
-                      <td id=<%= "content_#{student.marker_id}_#{student.question_id}"><%= student.content.present? ? student.content : "x"  %></td>
+                      <td id=<%= "content_#{student.marker_id}_#{student.question_id}" %>><%= student.content.present? ? student.content : "x"  %></td>
                     <% end %>
                   </tr>
                 <% end %>
