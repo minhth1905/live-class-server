@@ -19,6 +19,8 @@ PrivatePub.subscribe("/next_pages/new", function(data, channel) {
 
   if(data && data.type == "answer") {
     var id = "#content_" + data.message.student_id + '_' + data.message.question_id;
+    var id_2 = "#student_" + data.message.student_id + '_' + data.message.question_id;
     $(id).html("Đã trả lời");
+    $(id).css("display", "none");
   }
 });
