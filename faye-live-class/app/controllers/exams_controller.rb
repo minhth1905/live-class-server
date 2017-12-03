@@ -26,7 +26,8 @@ class ExamsController < ApplicationController
       end
       @question = check_question.content.html_safe
 
-      @students = Student.select("students.*", "answer_questions.*")
+      @students = Student.select("students.*", "answer_questions.question_id" ,
+        "answer_questions.student_id", "answer_questions.content")
         .joins("left join answer_questions
         on students.id = answer_questions.student_id")
         .where("answer_questions.question_id = ?", @type)
