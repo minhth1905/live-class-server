@@ -7,7 +7,7 @@ class Api::V1::ExamsController < ApplicationController
   end
 
   def show
-    questions = Question.where(exam_id: params[:id])
+    questions = Question.where(exam_id: params[:id]).order(id: :asc)
     render json: {code: 1, data: questions}
   end
 end

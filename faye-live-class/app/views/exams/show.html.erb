@@ -1,7 +1,7 @@
 <%= render 'layouts/header' %>
 <div class="row">
   <div class="col-md-2">
-    <div id="sidebar" class="well sidebar-nav" style="height: 90vh; padding-top: 0; margin-top: -19px;">
+    <div id="sidebar" class="well sidebar-nav" style="padding-top: 0; margin-top: -19px; height: 91vh; overflow: scroll;">
 
       <ul class="nav nav-pills nav-stacked">
         <li class=<%= @type == 'home' ? 'active' : "" %>>
@@ -28,7 +28,7 @@
       </div>
     <% else %>
       <div class="col-md-12">
-        <%= @question %>
+        <h3><%= @question%></h3>
       </div>
       <div class="col-md-12" style="text-align: center;">
         <h3>Danh sách kết quả trả lời</h3>
@@ -44,7 +44,7 @@
         <% end %>
       </div>
 
-      <div class="col-md-12" style="padding-top: 10px;">
+      <div class="col-md-12" style="padding-top: 10px; height: 60vh; overflow: scroll;">
         <div class="col-md-4">
           <table class="table table-bordered">
             <thead>
@@ -56,7 +56,7 @@
             </thead>
             <tbody>
               <% @students.each_with_index do |student, index| %>
-                <% if index < 15 %>
+                <% if index < 27 %>
                   <tr>
                     <td><%= index + 1 %></td>
                     <td><%= student.name %></td>
@@ -83,7 +83,7 @@
             </thead>
             <tbody>
               <% @students.each_with_index do |student, index| %>
-                <% if index < 30 && index >= 15 %>
+                <% if index < 54 && index >= 27 %>
                   <tr>
                     <td><%= index + 1 %></td>
                     <td><%= student.name %></td>
@@ -110,7 +110,7 @@
             </thead>
             <tbody>
               <% @students.each_with_index do |student, index| %>
-                <% if index >= 30 && index < 45 %>
+                <% if index >= 54 %>
                   <tr>
                     <td><%= index + 1 %></td>
                     <td><%= student.name %></td>
