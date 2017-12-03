@@ -32,7 +32,7 @@
           <h3><%= @question %></h3>
         </div>
         <div class="col-md-12" style="text-align: center;">
-          <h3>Danh sách kết quả trả lời</h3>
+          <h3>Danh sách sinh viên chưa có trả lời</h3>
         </div>
 
         <div class="col-md-12" style="text-align: center;">
@@ -58,11 +58,13 @@
               <tbody>
                 <% @students.each_with_index do |student, index| %>
                   <% if index < 27 %>
-                    <tr id=<%= "student_#{student.id}_#{student.question_id}" %>>
-                      <td><%= student.marker_id %></td>
-                      <td><%= student.name %></td>
-                      <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
-                    </tr>
+                    <% if student.content.blank? %>
+                      <tr id=<%= "student_#{student.id}_#{student.question_id}" %>>
+                        <td><%= student.marker_id %></td>
+                        <td><%= student.name %></td>
+                        <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
+                      </tr>
+                    <% end %>
                   <% end %>
                 <% end %>
               </tbody>
@@ -81,11 +83,13 @@
               <tbody>
                 <% @students.each_with_index do |student, index| %>
                   <% if index < 54 && index >= 27 %>
-                    <tr id=<%= "student_#{student.id}_#{student.question_id}" %>>
-                      <td><%= student.marker_id %></td>
-                      <td><%= student.name %></td>
-                      <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
-                    </tr>
+                    <% if student.content.blank? %>
+                      <tr id=<%= "student_#{student.id}_#{student.question_id}" %>>
+                        <td><%= student.marker_id %></td>
+                        <td><%= student.name %></td>
+                        <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
+                      </tr>
+                    <% end %>
                   <% end %>
                 <% end %>
               </tbody>
@@ -104,11 +108,13 @@
               <tbody>
                 <% @students.each_with_index do |student, index| %>
                   <% if index >= 54 %>
-                    <tr id=<%= "student_#{student.id}_#{student.question_id}" %>>
-                      <td><%= student.marker_id %></td>
-                      <td><%= student.name %></td>
-                      <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
-                    </tr>
+                    <% if student.content.blank? %>
+                      <tr id=<%= "student_#{student.id}_#{student.question_id}" %>>
+                        <td><%= student.marker_id %></td>
+                        <td><%= student.name %></td>
+                        <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
+                      </tr>
+                    <% end %>
                   <% end %>
                 <% end %>
               </tbody>

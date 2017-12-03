@@ -11,7 +11,7 @@
 #   Answer.create!(marker_id: i, full_name: full_name)
 # end
 
-User.create(email: "demo@gmail.com", password: "12345678", password_confirmation: "12345678")
+User.create(email: "admin@gmail.com", password: "kiemthu@2017", password_confirmation: "kiemthu@2017")
 
 #grade
 Grade.create(name: "Kiểm thử và đảm bảo chất lượng phần mềm", node: "node 1")
@@ -24,6 +24,6 @@ students.each do |student|
   Student.create(name: student[1], marker_id: student[0], grade_id: Grade.first.id)
 end
 
-1.upto(5) do |i|
+1.upto(6) do |i|
   Exam.create(name: "Bài kiểm tra số #{i}", grade_id: Grade.first.id)
 end
