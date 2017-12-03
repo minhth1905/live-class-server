@@ -61,11 +61,7 @@
                     <tr id=<%= "student_#{student.id}_#{student.question_id}" %>>
                       <td><%= student.marker_id %></td>
                       <td><%= student.name %></td>
-                      <% if @answer_true.blank? %>
-                        <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
-                      <% else %>
-                        <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? student.content : "x"  %></td>
-                      <% end %>
+                      <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
                     </tr>
                   <% end %>
                 <% end %>
@@ -88,11 +84,7 @@
                     <tr id=<%= "student_#{student.id}_#{student.question_id}" %>>
                       <td><%= student.marker_id %></td>
                       <td><%= student.name %></td>
-                      <% if @answer_true.blank? %>
-                        <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
-                      <% else %>
-                        <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? student.content : "x"  %></td>
-                      <% end %>
+                      <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
                     </tr>
                   <% end %>
                 <% end %>
@@ -115,11 +107,7 @@
                     <tr id=<%= "student_#{student.id}_#{student.question_id}" %>>
                       <td><%= student.marker_id %></td>
                       <td><%= student.name %></td>
-                      <% if @answer_true.blank? %>
-                        <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
-                      <% else %>
-                        <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? student.content : "x"  %></td>
-                      <% end %>
+                      <td id=<%= "content_#{student.id}_#{student.question_id}" %>><%= student.content.present? ? "Đã trả lời" : "x"  %></td>
                     </tr>
                   <% end %>
                 <% end %>
