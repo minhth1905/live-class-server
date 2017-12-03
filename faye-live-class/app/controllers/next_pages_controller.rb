@@ -4,6 +4,10 @@ class NextPagesController < ApplicationController
   def create
     exam_id = params[:exam_id]
     question_id = params[:question_id]
+    question = Question.find_by(id: question_id)
+    if question.present?
+      exam_id = question.exam_id
+    end
     type = params[:show_answer]
     if type.present?
       type = "show_answer"

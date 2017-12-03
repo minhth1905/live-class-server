@@ -57,7 +57,7 @@
             <tbody>
               <% @students.each_with_index do |student, index| %>
                 <% if index < 27 %>
-                  <tr>
+                  <tr id=<%= "student_#{student.marker_id}_#{student.question_id}" %>>
                     <td><%= index + 1 %></td>
                     <td><%= student.name %></td>
                     <% if @answer_true.blank? %>
